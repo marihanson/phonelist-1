@@ -30,16 +30,17 @@ def save_phonelist(C):
     except:
         print("No changes!")
     cur.close()
-
-print( '''Hello and welcome to the phone list. Available commands:
+    
+def print_help():
+    print( '''Hello and welcome to the phone list. Available commands:
              HELP - View command options
              ADD - add a phone number
              DELETE - delete a contact
              LIST - list all phone numbers
              SAVE - save changes
-             QUIT - quit the program'''
-)
+             QUIT - quit the program''')
 
+print_help()
 while True: ## REPL - Read Execute Program Loop
     cmd = input("Command: ").upper()
     if cmd == "LIST":
@@ -55,15 +56,9 @@ while True: ## REPL - Read Execute Program Loop
     elif cmd == "SAVE":
         save_phonelist(conn)
     elif cmd == "HELP":
-        print('''Hello and welcome to the phone list. Available commands:
-             HELP - View command options
-             ADD - add a phone number
-             DELETE - delete a contact
-             LIST - list all phone numbers
-             SAVE - save changes
-             QUIT - quit the program'''
-        )
+        print_help()
     elif cmd == "QUIT":
+        save_phonelist(conn)
         exit()
     else:
         print("unknown command: '{cmd}'")
