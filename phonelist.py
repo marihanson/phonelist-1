@@ -50,15 +50,19 @@ while True: ## REPL - Read Execute Program Loop
         phone = input("  Phone: ")
         address = input("  Address: ")
         add_phone(conn, name, phone, address)
+        print(f"{name} added!")
     elif cmd == "DELETE":
         id = input("  ID: ")
         delete_phone(conn, int(id))
+        print(f"{id} deleted!")
     elif cmd == "SAVE":
         save_phonelist(conn)
+        print("Saved!")
     elif cmd == "HELP":
         print_help()
     elif cmd == "QUIT":
         save_phonelist(conn)
+        print("Goodbye!")
         exit()
     else:
         print("unknown command: '{cmd}'")
