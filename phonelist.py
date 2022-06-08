@@ -65,3 +65,5 @@ while True: ## REPL - Read Execute Program Loop
         )
     elif cmd == "QUIT":
         exit()
+    else:
+        print("unknown command: '{cmd}'")
